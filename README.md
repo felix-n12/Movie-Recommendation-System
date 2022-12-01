@@ -133,7 +133,7 @@ Then we use the term frequency-inverse document frequency to create a search eng
 We then create a function that will use cosine similarity to compute the similarity between a term that we will enter in our search box and the anime titles in our dataset.
 We then build an interactive search box that will enable one to type in the name of an anime and have the results.
 
-Modeling Techniques
+## Modeling Techniques
 
 We used various modeling techniques to create a recommendation system
 Including
