@@ -21,15 +21,27 @@ Due to the prevalence of the Internet, we need recommender systems in modern soc
 The most appropriate solution to deal with our problem is to come up with a system that would recommend movies to our consumers based on their preferences and tastes in order to maximize consumer utility and increase profits for producer companies.
 ## Justification of the Study
 The objective of recommender systems is to provide recommendations based on recorded information on the users' preferences. If recommendations are engineered and deployed effectively they can have a direct impact on the world. Users would be able to access movies in line with their interests thereby maximizing their utility whereas movie producers will be able to know their target market thereby maximizing profits.
+
 ## Specific Objectives
-To build a model that will recommend and make predictions about a  user’s taste.
-To build a model that will be able to show movie producers their target audience.
 
-Research Questions
+To build a model that will recommend the most likely anime a user may watch.
 
-●  	What are the most popular anime genres?
+To find out the most watched anime genre
 
-●  	What are the top movie sources? 
+To determine the highest rated genre
+
+To determine the anime source with the most members
+
+## Research Questions
+
+Which is the model that provides recommendations?
+
+What is the most-watched anime genre? 
+
+What is the highest-rated anime genre?
+
+Which anime sources have the most members?
+
 ## Success Criteria
 Create a model that can recommend movies to users based on their preferences 
 ## DATA UNDERSTANDING
