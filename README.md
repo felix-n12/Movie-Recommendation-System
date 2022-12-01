@@ -24,28 +24,29 @@ The objective of recommender systems is to provide recommendations based on reco
 
 ## Specific Objectives
 
-To build a model that will recommend the most likely anime a user may watch.
+* To build a model that will recommend the most likely anime a user may watch.
 
-To find out the most watched anime genre
+* To find out the most watched anime genre
 
-To determine the highest rated genre
+* To determine the highest rated genre
 
-To determine the anime source with the most members
+* To determine the anime source with the most members
 
 ## Research Questions
 
-Which is the model that provides recommendations?
+* Which is the model that provides recommendations?
 
-What is the most-watched anime genre? 
+* What is the most-watched anime genre? 
 
-What is the highest-rated anime genre?
+* What is the highest-rated anime genre?
 
-Which anime sources have the most members?
+* Which anime sources have the most members?
 
 ## Success Criteria
 Create a model that can recommend movies to users based on their preferences 
+
 ## DATA UNDERSTANDING
-Overview
+### Overview
 
 In this project, a dataset containing a list of anime movies was collected from kaggle.
 Exploring Data
@@ -56,141 +57,89 @@ The dataset has the following features.
 
 ●      There are 15 columns.
 
-The following is a brief description of the columns in the dataset.
+The following are the columns in the dataset.
 
-Anime_id :anime Id (as per myanimelist.net)
+* Anime_id :anime Id (as per myanimelist.net)
+* Title : Name of anime
+* Genre :Main genres in the movie
+* Synopsis :Brief Description
+* Type
+* Producer: Production company of the anime
+* Studio: The studio that produced the anime
+* Rating: Rating of anime as per myanimelist. net/(on a scale of 1-10)
+* ScoredBy: Total no user scored given anime
+* Popularity: Rank of anime based on popularity
+* Members: No of members added given anime on their list
+* Episodes: No. of episodes
+* Source
+* Aired
+* Link: Link to the anime on myanimelist
 
-Title : Name of anime
-
-Genre :Main genres in the movie
-
-Synopsis :Brief Description
-
-Type
-
-Producer: Production company of the anime
-
-Studio: The studio that produced the anime
-
-Rating: Rating of anime as per myanimelist. net/(on a scale of 1-10)
-
-ScoredBy: Total no user scored given anime
-
-Popularity: Rank of anime based on popularity
-
-Members: No of members added given anime on their list
-
-Episodes: No. of episodes
-
-Source
-
-Aired
-
-Link: Link to the anime on myanimelist
 ## DATA PREPARATION 
+
 This was done to ensure the Validity, Accuracy, Completeness, Consistency, and Uniformity of the Data. These are the steps followed in preparing the data: 
 
-TASK1: The first task was to check if the column names were uniform and readable.
-
-TASK2: The second task was to check for duplicated rows.
-
-TASK3: The next task was to check if there were missing values.
-
-TASK4:The next task was to decide how to deal with the missing values. (Either drop if they are unnecessary or replace the missing values with the best 
+>- TASK1: The first task was to check if the column names were uniform and readable.
+>- TASK2: The second task was to check for duplicated rows.
+>- TASK3: The next task was to check if there were missing values.
+>- TASK4:The next task was to decide how to deal with the missing values. (Either drop if they are unnecessary or replace the missing values with the best 
 fit.)
+>- TASK5: The last task was to check if the columns had the correct data types.
 
-TASK5: The last task was to check if the columns had the correct data types.
-
-The data provided is correct and up to date.
-
-link to notebook:
 ## DATA ANALYSIS 
+
 To better comprehend the data patterns and even develop some hypotheses, let’s first begin by studying our dataset. In order to find any significant trends, we will first examine the distribution of the various variables.
 
 
-Univariate analysis
+### Univariate analysis
 
 This involves the plotting of data into histograms and bar charts in order to have a better understanding of the data.
 
-From the univariate analysis, we came up with the following inferences:
-
-
-
-
-
-
-
-Bivariate analysis
+### Bivariate analysis
 
 This involves the use of two columns on our dataset in order to plot charts that will show the relationship between various features in our dataset.
 
-From the bivariate analysis, we came up with the following inferences:
-
-
-
-
-
-
-
-
-Multi-variate analysis
+### Multi-variate analysis
 
 This involves using more than two columns of data to create charts that will give us a superior understanding of how the various features affect and relate to each other.
 
-From the multi-variate analysis, we came up with the following inferences:
-
-
-
-
-
-
-
-
-### Visualization 
-
-The charts we generated from the Exploratory Data Analysis are: 
-
 ## MODELLING
-Pre-processing
+### Pre-processing
 We create a function that will be able to clean the anime titles using REGEX. Cleaning the title name is crucial because it can often lead to errors whereby the title name is not in a machine-readable format
 Then we use the term frequency-inverse document frequency to create a search engine so that it is easy to find an anime title and its anime id. The tfdif Vectorizer will enable the computer to find the title that is most similar to the title we enter.
 We then create a function that will use cosine similarity to compute the similarity between a term that we will enter in our search box and the anime titles in our dataset.
 We then build an interactive search box that will enable one to type in the name of an anime and have the results.
 
 ## Modeling Techniques
-We used various modeling techniques to create a recommendation system
-Including
+We used various modeling techniques to create a recommendation system which are;
 
-Collaborative filtering recommendation system
+* Collaborative filtering recommendation system
+* User-based recommendation system
+* Hybrid recommendation system
+* Collaborative filtering  Recommendation system
 
-User-based recommendation system
-
-Hybrid recommendation system
-
-Collaborative filtering  Recommendation system
-
-Under collaborative filtering we made use of the KNN machine learning algorithm.
+Under collaborative filtering we made use of the KNN machine learning algorithm and SVD.
 KNN is a machine learning algorithm to find clusters of similar users based on common book ratings and makes predictions using the average rating of top-k nearest neighbors.
 Once the model was correctly engineered we made a function that takes in a movie and gives recommendations of other movies based on the movie the user watched.
 
-User-based Recommendation system
+### User-based Recommendation system
 
 A user-based recommendation systems predicts the user preferences or ratings that users would give to items. We made use of pair_wise distances that computes the distances between corresponding elements of two arrays.
 The next step is to make predictions based on these similarities which are done by a function we created that takes in the movie ratings, the user similarity scores and type of user and gives recommendations.
 
-Hybrid Recommendation System
+### Hybrid Recommendation System
 
 We create a function that takes in a user, ratings based on collaborative filtering and predictions based on user-based recommendations to make recommendations on what movie a user should view based on their tastes and preferences.
 
-Model Validation.
+## Model Validation.
 
 We employ Root mean squared error to validate our hybrid model.
-The model has an RMSE of 2.93224
+The model has an RMSE which is 1.707
 
-Deployment
+## Deployment
 
 We made use of Streamlit which is an open source python-based framework for developing and deploying interactive data science dashboards and machine learning models.
-Link: 
+[Link](https://anime-deployment.streamlit.app/) 
 
 
 
