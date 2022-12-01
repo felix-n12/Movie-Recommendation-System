@@ -43,7 +43,7 @@ The objective of recommender systems is to provide recommendations based on reco
 * Which anime sources have the most members?
 
 ## Success Criteria
-Create a model that can recommend movies to users based on their preferences 
+Create a model that can recommend movies to users with an RMSE of 2.0 and below. 
 
 ## DATA UNDERSTANDING
 ### Overview
@@ -95,13 +95,36 @@ To better comprehend the data patterns and even develop some hypotheses, let’s
 
 This involves the plotting of data into histograms and bar charts in order to have a better understanding of the data.
 
+From the univariate analysis, we came up with the following inferences:
+
+Animes aired on TV are the most watched
+
+Hental is the top genre.
+
+The top-known movie sources are original sources and Manga
+
+
 ### Bivariate analysis
 
 This involves the use of two columns on our dataset in order to plot charts that will show the relationship between various features in our dataset.
 
+From the bivariate analysis, we came up with the following inferences:
+
+Light novel, Manga, and 4-Koma manga are the top-rated anime sources
+(‘Aniplex’, ‘Square Enix’, ‘Mainichi Broadcast with 9,25), ( ‘Kadokawa Shoten,’ ‘Toho’, ‘Sound Team Don Ju with 9.19) and (‘TV Tokyo’, ‘Aniplex’, ‘Dentsu’ with 9.15 ) are the most-rated producers
+
+Death note, Shingeki no Kyojin and Sword art online are the anime movies that are rated the most.
+
+All movie sources produce different types of anime movies. Moreover, original and manga sources are the most popular.
+
 ### Multi-variate analysis
 
 This involves using more than two columns of data to create charts that will give us a superior understanding of how the various features affect and relate to each other.
+
+This involves using more than two columns of data to create charts that will give us a superior understanding of how the various features affect and relate to each other.
+From the multivariate analysis, we came up with the following inferences:
+
+The average rating of the types in the anime sources is 6.5   But there is no clear observed difference between the different sources or types.
 
 ## MODELLING
 ### Pre-processing
@@ -110,22 +133,66 @@ Then we use the term frequency-inverse document frequency to create a search eng
 We then create a function that will use cosine similarity to compute the similarity between a term that we will enter in our search box and the anime titles in our dataset.
 We then build an interactive search box that will enable one to type in the name of an anime and have the results.
 
-## Modeling Techniques
-We used various modeling techniques to create a recommendation system which are;
+Modeling Techniques
+We used various modeling techniques to create a recommendation system
+Including
 
-* Collaborative filtering recommendation system
-* User-based recommendation system
-* Hybrid recommendation system
-* Collaborative filtering  Recommendation system
+Content-Based model (Model 1)
+We build a content-based model by using the ‘synopsis’  and ‘Title’ column.
+We make use of linear kernel to make a matrix based on the cosine similarity.
+We then make a function that takes in the anime title and cosine similarity and returns the 15 most similar movies
 
-Under collaborative filtering we made use of the KNN machine learning algorithm and SVD.
+Content-Based model (Model 2)
+We build a content-based model by using the ‘studio’,  ‘genre’, and ‘Producer’ column.
+We make use of linear kernel to make a matrix based on the cosine similarity.
+We then make a function that takes in the anime title and cosine similarity and returns the 15 most similar movies
+
+Collaborative filtering  Recommendation system
+Under collaborative filtering, we made use of the KNN machine learning algorithm.
 KNN is a machine learning algorithm to find clusters of similar users based on common book ratings and makes predictions using the average rating of top-k nearest neighbors.
 Once the model was correctly engineered we made a function that takes in a movie and gives recommendations of other movies based on the movie the user watched.
+We make a pivot table for an easier modeling process.
 
-### User-based Recommendation system
+Item-based
+We generate a compressed sparse row from the pivot values in the pivot table.
+We employed KNN with cosine as the metric.
+We then make a function that takes in the name and a number and returns the number of most similar movies
 
-A user-based recommendation systems predicts the user preferences or ratings that users would give to items. We made use of pair_wise distances that computes the distances between corresponding elements of two arrays.
-The next step is to make predictions based on these similarities which are done by a function we created that takes in the movie ratings, the user similarity scores and type of user and gives recommendations.
+User-based 
+A user-based recommendation system predicts the user preferences or ratings that users would give to items. We made use of pair_wise distances that computes the distances between corresponding elements of two arrays.
+The next step is to make predictions based on these similarities which are done by a function we created that takes in the movie ratings, the user similarity scores, and the type of user and gives recommendations.
+
+Hybrid Recommendation System
+We create a function that takes in a user, ratings based on collaborative filtering, and predictions based on user-based recommendations to make recommendations on what movie a user should view based on their tastes and preferences. 
+we use the Term Frequency-inverse document frequency to create a search engine so that it is easy to find an anime title and its anime id. The tddif will enable the computer to find the title that is most similar to the one we enter.
+We will then create a function that will use cosine similarity to compute the similarity between a term that we will enter in our search and all the anime titles in our dataset.
+We implement the model to find similar users by finding the score between the similar users and all users. The higher the score the better the recommendation. We then get the top 10 recommendations and their titles
+We create a function to perform the previous function more efficiently.
+We then create an interactive recommendation widget where one enters the anime title and gets recommendations based on the title.
+
+Model-Based modeling
+We make use of the KNNwithmeans and SVD algorithms to build our recommendation system
+We make use of surprise to find the best collaborative filtering model.
+Model validation
+KNNwithmean: RMSE is 1.6958 for test data and 1.706 for validation data.
+SVD: RMSE is 1.6959 for test data and 1.707 for validation data.
+ 
+Model Evaluation
+We have built two types of models:
+Metric based
+Model based
+ 
+For the metric-based model, we have the content-based and the hybrid model. The hybrid model gave better recommendations than the content-based model.
+For the Model-based, we have used the SVD and  KNNwithmeans algorithms. Both models perform almost the same hence we opted to go with either of the models since they both satisfy our objective of attaining an RMSE of 2.0 and below.
+
+Deployment
+We made use of Streamlit which is an open source python-based framework for developing and deploying interactive data science dashboards and machine learning models.
+The app prompts the user to select a title then it gives the top 10 recommendations.
+Link:Recommendation System 
+RECOMMENDATIONS
+This app is beneficial for anime lovers and anime producers
+The recommendation system can be improved by using GridSearch cv. Grid 
+Search requires a lot of computation power therefore it is recommended that you have rough computation power.
 
 ### Hybrid Recommendation System
 
