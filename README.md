@@ -145,6 +145,39 @@ We then create a function that will use cosine similarity to compute the similar
 We then build an interactive search box that will enable one to type in the name of an anime and have the results.
 
 ## Modeling Techniques
+We used various modeling techniques to create a recommendation system
+Including
+
+Collaborative filtering recommendation system
+
+User-based recommendation system
+
+Hybrid recommendation system
+
+Collaborative filtering  Recommendation system
+
+Under collaborative filtering we made use of the KNN machine learning algorithm.
+KNN is a machine learning algorithm to find clusters of similar users based on common book ratings and makes predictions using the average rating of top-k nearest neighbors.
+Once the model was correctly engineered we made a function that takes in a movie and gives recommendations of other movies based on the movie the user watched.
+
+User-based Recommendation system
+
+A user-based recommendation systems predicts the user preferences or ratings that users would give to items. We made use of pair_wise distances that computes the distances between corresponding elements of two arrays.
+The next step is to make predictions based on these similarities which are done by a function we created that takes in the movie ratings, the user similarity scores and type of user and gives recommendations.
+
+Hybrid Recommendation System
+
+We create a function that takes in a user, ratings based on collaborative filtering and predictions based on user-based recommendations to make recommendations on what movie a user should view based on their tastes and preferences.
+
+Model Validation.
+
+We employ Root mean squared error to validate our hybrid model.
+The model has an RMSE of 2.93224
+
+Deployment
+
+We made use of Streamlit which is an open source python-based framework for developing and deploying interactive data science dashboards and machine learning models.
+Link: 
 
 
 
