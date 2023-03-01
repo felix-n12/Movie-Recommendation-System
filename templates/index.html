@@ -8,5 +8,8 @@
 <h1> All day Anime All day </h1>
 <image src="https://wallpaperaccess.com/full/165083.jpg" alt="Anime Picture" width = "800" height = "400"> </image>
 
-<button>search</button>
+<form action="/recommend" method="post">
+    <input type="text" name="input" placeholder="Search for movies">
+    <button type="submit">Submit</button>
+</form>
 {% endblock %}
