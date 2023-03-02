@@ -5,7 +5,12 @@
 {% endblock %}
 
 {% block body%}
-<h1>Results</h1> 
-<p> Based on your input we recommend the following:</p>
-<p>{{recommendation}}</p>
+<h1>All day Anime All day</h1> 
+<image src="https://wallpaperaccess.com/full/435.jpg" alt="cool photo" width = "800" height = "400"></image>
+<p> Here are your search results:</p>
+<ul>
+    {% for item in recommendation %}
+    <li class="my_class">{{item}}</li>
+    {% endfor %}
+</ul>
 {% endblock %}

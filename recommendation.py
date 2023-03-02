@@ -29,5 +29,5 @@ def search(title):
 
     # reverse results so that most similar result is at the top
     results = data.iloc[indices].iloc[::-1]
-    
-    return results['Title'].to_list()
+    results_list=results['Title'].to_list()
+    return results_list
