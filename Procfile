@@ -1,1 +1,1 @@
-web: gunicorn anime-app:anime-app
+web: gunicorn app:app
